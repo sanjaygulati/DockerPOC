@@ -1,0 +1,17 @@
+# escape=`
+From msbuild:netfx-4.6.2
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+RUN & nuget install MSBuild.Microsoft.VisualStudio.Web.targets -Version 14.0.0.3
+
+ENTRYPOINT ["powershell"]
+
+#WORKDIR c:\InternalApplications\trunk\SharedComponents\Content
+#COPY .\trunk\SharedComponents\ .\..\
+
+#RUN nuget restore -ConfigFile Nuget.Config
+
+# RUN msbuild ContentWCF.sln /p:OutputPath=c:\out `
+ #        /p:DeployOnBuild=true /p:VSToolsPath=C:\MSBuild.Microsoft.VisualStudio.Web.targets.14.0.0.3\tools\VSToolsPath
+

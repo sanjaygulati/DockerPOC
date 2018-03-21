@@ -13,6 +13,4 @@ ENV NUGET_PATH="C:\Chocolatey\lib\NuGet.CommandLine.3.5.0\tools" `
 RUN $env:PATH = $env:NUGET_PATH + ';' + $env:MSBUILD_PATH + ';' + $env:PATH; `
 	[Environment]::SetEnvironmentVariable('PATH', $env:PATH, [EnvironmentVariableTarget]::Machine)
 
-RUN & nuget install Microsoft.Data.Tools.Msbuild -Version 10.0.61026
-
 ENTRYPOINT ["powershell"]
